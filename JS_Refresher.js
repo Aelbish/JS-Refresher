@@ -386,3 +386,17 @@ console.log(veg1.name);
 // to import from this we do import {func1, func2} from "path"
 //if we want to export one thing from a file, we do const func1 = () => {}; export default func1;
 //to import from this we do import func1 from "path"
+
+//HOISTING IN JS
+//Hoisting is the default behavior of JS to move all the declations at the top of the scope
+//before code execution.
+//JS only hoists declartions not initializations.
+//JS allocations memory for all variables and functions defined in the program before execution.
+//Assigning a value to an UNDECLARED variable makes it a global variable.
+const undeclared = () => {
+  xx = 5;
+  let b = 5;
+};
+undeclared();
+console.log(xx, "The value of xx is printed because it is global");
+//Reference error occurs when we try to access an undeclared variable
