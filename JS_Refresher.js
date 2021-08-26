@@ -393,6 +393,7 @@ console.log(veg1.name);
 //JS only hoists declartions not initializations.
 //JS allocations memory for all variables and functions defined in the program before execution.
 //Assigning a value to an UNDECLARED variable makes it a global variable.
+//UNDECLARED VARIABLE is assigned the value of undefined
 const undeclared = () => {
   xx = 5;
   let b = 5;
@@ -400,3 +401,41 @@ const undeclared = () => {
 undeclared();
 console.log(xx, "The value of xx is printed because it is global");
 //Reference error occurs when we try to access an undeclared variable
+//Variables declared with let and const remain uninitialised at the beginning of execution
+//whilst variables declared with var are initialised with a value of undefined.
+//Function declartions are hoisted to the top, function expressions are not hoisted.
+hoisted();
+function hoisted() {
+  console.log(
+    "Function declartions are hoisted, so we can call this function before defining this function"
+  );
+}
+
+//functionExpression();
+const functionExpression = () => {
+  console.log(
+    "Function expressions are not hoisted, so we cannot execute this function before defining it."
+  );
+};
+
+//Precedence of variable declaration, variable assignment, and function declartions
+//Variable assignment takes precedence over function declarations
+//Function declarations take precedence over variable declarations
+
+var double = 11;
+function double() {
+  return 5;
+}
+console.log(
+  typeof double,
+  "This should be a number because of precedence rule"
+);
+
+var double1;
+function double1() {
+  return 5;
+}
+console.log(
+  typeof double1,
+  "This should be a function because of the precedence rule"
+);
