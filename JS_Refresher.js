@@ -7,7 +7,7 @@
 //the declarations are case sensitive
 //these keywords hoist to the top of their scope
 
-//var is function scoped or global scoped (if declared outside of a function)
+//var is function scoped or global scoped (if declared outside of a function), IT IS NOT BLOCK SCOPEDDD
 //it is hoisted as undefined, value can be changed
 //Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 //var with the same name can be redeclared which can cause bugs
@@ -23,10 +23,13 @@ let myName1 = "Tommy";
 
 //const can never be changed
 //similarites with let, so blocked scope
-//it cannot be updated so it must have an assigned value when declaring
-//NOTE: when creating an object with const keyword the actual object cannot be redeclared, but its properties can be updated
 //will not be initialized
+//it cannot be updated so it must have an assigned value when declaring
 const myName2 = "Sammy";
+//NOTE: when creating an object with const keyword the actual object cannot be redeclared, but its properties can be updated
+//Hence if we actaully need to create a const object that cannot be changed we can use freeze method;
+const obj1 = { name: "Sam", age: 51 };
+Object.freeze(obj1);
 
 console.log(myName);
 
@@ -289,3 +292,44 @@ console.log(parseInt("8F", 16));
 
 //Terenary operator
 // Syntax: condition? "//if true" : "/if false"
+
+//Setting a default value for an argument
+const addOneByDefault = (a, b = 1) => a + b;
+console.log(addOneByDefault(2));
+
+//REST operator, rest operator will create an array from an array or any iterables
+// The rest parameter allows us to pass an indefinite number of parameters to a function and access them in an array.
+const usingRest = (...args) => {
+  args.map((item) => console.log(item));
+};
+usingRest(1, 2, 4, 5, { name: "Aelbish" }, [1, 2, 3]);
+
+//SPREAD OPERATOR
+//The spread operator allows us to spread the values of arrays into a new array
+//We can use the spread operator to create a copy of the array also, since if we do something like
+// let arr1=[1, 2, 3], let arr2=arr1, and we change an element of arr1, then arr2 will also change since the reference the same memory
+const ar1 = [1, 2, 3, 4];
+const ar2 = [5, 6, 7];
+const ar3 = [...ar1, ...ar2];
+console.log(ar3);
+//We can also use the spread operator to pass the arguments from an array to a function
+const params = [1, 2, 3];
+const summer = (a, b, c) => a + b + c;
+console.log(summer(...params));
+
+//DESTRUCTING ARRAY
+const [n1, n2, n3, n4] = ["Aelbish", "Nick", "Rory", "Shane"];
+console.log(n1, n2, n3, n4);
+//Skipping elements while destructuring the array, each comma will represent an element that is to be skipped
+const [nn1, , nn3] = ["Aelbish", "Nick", "Rory", "Shane"];
+console.log(nn1, nn3);
+
+//Object destructuring
+const { name: nam1 = "jell", address: ad1 } = { address: "Louisiana" };
+console.log(nam1, ad1);
+//Nested object destructuring
+const {
+  title,
+  location: { street: streetName },
+} = { title: "Swagger", location: { street: "4217 Pelican Rd", state: "LA" } };
+console.log(streetName);
