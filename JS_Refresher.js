@@ -320,7 +320,7 @@ console.log(summer(...params));
 //DESTRUCTING ARRAY
 const [n1, n2, n3, n4] = ["Aelbish", "Nick", "Rory", "Shane"];
 console.log(n1, n2, n3, n4);
-//Skipping elements while destructuring the array, each comma will represent an element that is to be skipped
+//Skipping elements while destructuring the array, each empty comma will represent an element that is to be skipped
 const [nn1, , nn3] = ["Aelbish", "Nick", "Rory", "Shane"];
 console.log(nn1, nn3);
 
@@ -333,3 +333,50 @@ const {
   location: { street: streetName },
 } = { title: "Swagger", location: { street: "4217 Pelican Rd", state: "LA" } };
 console.log(streetName);
+
+//SPREAD OPERATOR with destructing array
+const [, , ...removeFirstAndSecondFromArr] = [1, 2, 3, 4, 5];
+console.log(removeFirstAndSecondFromArr);
+
+//We can destructure before while the object while passing it as argument
+const argObj = { namer: "Aelbish", gender: "male" };
+const raaa = ({ namer, gender }) => {
+  console.log(namer + gender);
+};
+raaa(argObj);
+
+//Construct a class and object
+class Person {
+  constructor(age) {
+    //underscore means should be private
+    this._age = age;
+  }
+  //getter
+  get ageOfPerson() {
+    return this._age;
+  }
+  //setter
+  set ageOfPerson(newAge) {
+    this._age = newAge;
+  }
+}
+
+const person1 = new Person(55);
+console.log(person1.ageOfPerson);
+person1.ageOfPerson = 65;
+console.log(person1);
+
+class Vegetable {
+  constructor(name111) {
+    this._name = name111;
+  }
+  get name() {
+    return this._name;
+  }
+  set name(newName) {
+    this._name = newName;
+  }
+}
+const veg1 = new Vegetable("pumpkin");
+console.log(veg1);
+console.log(veg1.name);
