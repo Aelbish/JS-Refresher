@@ -380,3 +380,9 @@ class Vegetable {
 const veg1 = new Vegetable("pumpkin");
 console.log(veg1);
 console.log(veg1.name);
+
+//import * as objectName from "path"
+//if we want to export multiple functions from a file, we do export const func1 = () => {}
+// to import from this we do import {func1, func2} from "path"
+//if we want to export one thing from a file, we do const func1 = () => {}; export default func1;
+//to import from this we do import func1 from "path"
