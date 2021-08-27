@@ -439,3 +439,49 @@ console.log(
   typeof double1,
   "This should be a function because of the precedence rule"
 );
+
+//Check if a given string is palindrome
+function isPalindrome(str) {
+  const newStr = str.replace(/[\W]/g, "").toLowerCase();
+  return str == newStr.split("").reverse().join("");
+}
+console.log(isPalindrome("aelbibleaa"));
+
+//Sum of two numbers
+function sumOfNum(x) {
+  if (arguments.length == 2) {
+    return arguments[0] + arguments[1];
+  } else {
+    return function (y) {
+      return x + y;
+    };
+  }
+}
+console.log(sumOfNum(2)(3));
+
+var d = {};
+["zebra", "horse"].forEach(function (k) {
+  d[k] = undefined;
+});
+console.log(d);
+
+var arrr1 = "john".split("");
+//NOTE:reverse will reverse the original array we and also return a reference of the original array
+//Hence, if we change arr2, arrr1 will also be changed because reverse returns a REFERENCE not a COPY
+var arr2 = arrr1.reverse();
+var arr3 = "jones".split("");
+//when we push arr3 it will be pushed as a single array element at the end of arr2
+arr2.push(arr3);
+//slice(-1) returns the last element
+console.log("array 1: length=" + arrr1.length + " last=" + arrr1.slice(-1));
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+
+console.log(1 + "2" + "2");
+console.log(1 + +"2" + "2");
+console.log(1 + -"1" + "2");
+console.log(+"1" + "1" + "2");
+console.log("A" - "B" + "2");
+console.log("A" - "B" + 2);
+
+//Closure
+//A closure if an inner function which is enclosed by an outer function. The closure will have access to variables in its scope, global variables, and variables in the enclosing function scope
