@@ -6,6 +6,10 @@
 //How to initialize a data
 //the declarations are case sensitive
 //these keywords hoist to the top of their scope
+//Primitive and non-primitive data types
+//Primitive data types: Number, String, null, undefined, bigint, symbol
+//Non-primitive data types:Objects, Array
+//NOTE: It is important to remember that any data type that is not primitive data type, is of Object type in javascript.
 
 //var is function scoped or global scoped (if declared outside of a function), IT IS NOT BLOCK SCOPEDDD
 //it is hoisted as undefined, value can be changed
@@ -517,4 +521,3 @@ console.log(
     return num > 1 ? num * factorial(num - 1) : num;
   })(10)
 );
-
