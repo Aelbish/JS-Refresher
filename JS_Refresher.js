@@ -91,17 +91,19 @@ arrCalc.unshift(99);
 console.log(arrCalc);
 //Get index of an element, returns -1 if not found
 console.log(arrCalc.indexOf(99));
+
 //Remove an item based on index, splice takes two arguments, the first one is the starting positions and the second one is the number of elements to be removed
 arrCalc.splice(0, 1);
 console.log("SPLICE", arrCalc);
+
 //SLICE function, takes startIndex and endIndex as two arguments from StartIndex and "to and not including EndIndex"
 //NOTE: this does not edit the original array or string we are working on
 const newSlice = arrCalc.slice(0, 1);
 console.log("SLICE", newSlice);
-
-//make a copy of an array, splice returns the element or an array
-let arrCalcCopy = arrCalc.splice();
+//make a copy of an array, slice returns the element or an array
+let arrCalcCopy = arrCalc.slice();
 console.log(arrCalcCopy);
+console.log(arrCalc);
 
 let advArr = [
   ["Aelbish", 23],
@@ -161,6 +163,12 @@ delete newObj.name;
 console.log(newObj);
 //Check if the object has a property
 console.log(newObj.hasOwnProperty("a name"));
+//Cloning an object
+//NOTE:Cloning this way will do a shallow copy not a deep copy i.e. if the object we are trying to clone has nested object then the nested object's reference will be copied instead of creating a new memory
+//of that nested object. Hence, if we change the original object's nested object after cloning it, the cloned object's nested object will also be changed.
+var cloneeObj = { a: 1, b: 1 };
+var clonedObj = Object.assign({}, cloneeObj);
+console.log("CLONED: ", clonedObj);
 
 //LOOPS LOOPS LOOPS
 //While loop
@@ -485,3 +493,28 @@ console.log("A" - "B" + 2);
 
 //Closure
 //A closure if an inner function which is enclosed by an outer function. The closure will have access to variables in its scope, global variables, and variables in the enclosing function scope
+
+//setTimeout
+for (var ii = 0; ii < 5; ii++) {
+  (function (xxz) {
+    setTimeout(function () {
+      console.log(xxz);
+    }, xxz * 1000);
+  })(ii);
+}
+
+var az = {},
+  b = { key: "b" },
+  c = { key: "c" };
+
+az[b] = 123;
+az[c] = 456;
+
+console.log(az[b]);
+
+console.log(
+  (function factorial(num) {
+    return num > 1 ? num * factorial(num - 1) : num;
+  })(10)
+);
+
