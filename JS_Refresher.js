@@ -2,6 +2,61 @@
 
 //This is an inline commment.
 
+//JS is loosely typed language. It is dynamically typed language i.e. the type of a variable is checked during runtume
+//instead of compile time. A variable can hold any type of data.
+
+//In JS primitive data types are passed by value and non-primitive data types are passed by reference
+//For understanding passed by value and passed by reference, we need to understand what happens when we create a variable and assign a value to it,
+
+//var x = 2;
+
+//In the above example, we created a variable x and assigned it a value “2”. In the background, the “=” (assign operator) allocates some space in the memory, 
+//stores the value “2” and returns the location of the allocated memory space. 
+//Therefore, the variable x in the above code points to the location of the memory space instead of pointing to the value 2 directly.
+//Assign operator behaves differently when dealing with primitive and non primitive data types,
+//Assign operator dealing with primitive types:
+
+//var y = 234;
+// var z = y;
+
+// In the above example, assign operator knows that the value assigned to y is a primitive type (number type in this case), 
+// so when the second line code executes, where the value of y is assigned to z, the assign operator takes the value of y (234) and 
+// allocates a new space in the memory and returns the address. Therefore, variable z is not pointing to the location of variable y, instead it is pointing to a new location in the memory.
+
+// var y = #8454; // y pointing to address of the value 234
+// var z = y; 
+// var z = #5411; // z pointing to a completely new address of the value 234
+        
+// Changing the value of y
+
+// y = 23;
+// console.log(z);  // Returns 234, since z points to a new address in the memory so changes in y will not effect z
+
+// From the above example, we can see that primitive data types when passed to another variable, are passed by value. 
+// Instead of just assigning the same address to another variable, the value is passed and new space of memory is created.
+// Assign operator dealing with non-primitive types:
+
+// var obj = { name: "Vivek", surname: "Bisht" };
+// var obj2 = obj;
+
+// In the above example, the assign operator, directly passes the location of the variable obj to the variable obj2. 
+// In other words, the reference of the variable obj is passed to the variable obj2.
+
+// var obj = #8711;  // obj pointing to address of { name: "Vivek", surname: "Bisht" }
+// var obj2 = obj;
+// var obj2 = #8711; // obj2 pointing to the same address 
+        
+// changing the value of obj1
+        
+// obj1.name = "Akki";
+//console.log(obj2);
+        
+// Returns {name:"Akki", surname:"Bisht"} since both the variables are pointing to the same address.
+
+// From the above example, we can see that while passing non-primitive data types, the assign operator directly passes the address (reference).
+// Therefore, non-primitive data types are always passed by reference.
+
+
 //Data types
 //How to initialize a data
 //the declarations are case sensitive
@@ -45,6 +100,23 @@ test();
 console.log(hi);
 hi += "BYE";
 console.log(hi);
+
+//IMPLICIT TYPE COERCION
+//Automatic conversion of a value from one data type to another
+//NOTE:ype coercion also takes place when using the ‘ - ‘ operator, 
+//but the difference while using ‘ - ‘ operator is that, a string is 
+//converted to a number and then subtraction takes place.
+//Equality coercion: When we check with == then the types are converted
+
+
+//TRUTHY AND FALSY
+//Truthy values are those which will be converted (coerced) to true . 
+//Falsy values are those which will be converted to false .
+//All values except 0, 0n, -0, “”, null, undefined and NaN are truthy values.
+//Logical operators
+//For &&: if both values are truthy returns the second value, if first value is falsy the first value is returned
+//if second value is falsy seond value is returned
+//For ||: if first value is truthy, then the first value is returned else always second value is returned
 
 //NUMBERS
 //Shortcuts for arithmetic operations
@@ -400,7 +472,8 @@ console.log(veg1.name);
 //to import from this we do import func1 from "path"
 
 //HOISTING IN JS
-//Hoisting is the default behavior of JS to move all the declations at the top of the scope
+//Hoisting is the default behavior of JS to move all the declarations at the top of the scope
+//Note: Variable initializations are not hoisted, only variable declarations are hoisted.
 //before code execution.
 //JS only hoists declartions not initializations.
 //JS allocations memory for all variables and functions defined in the program before execution.
