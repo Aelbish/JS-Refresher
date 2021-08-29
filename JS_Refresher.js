@@ -62,6 +62,24 @@
 //We enlose the function with brackets because JS will throw an error since the function doesnot have a name
 //Since it needs to be invoked immediately we also call it by adding ()
 
+//Higher order function
+//Functions that operate on other function by taking it as argument or returning it
+//Higher order functions are a result of functions being first class citizens in JS
+//Examples
+// function higherOrder(fn) {
+//   fn();
+// }
+
+// higherOrder(function () {
+//   console.log("hello");
+// });
+
+// function higherOrder2() {
+//   return function () {
+//     return "Do something";
+//   };
+// }
+
 //Data types
 //How to initialize a data
 //the declarations are case sensitive
