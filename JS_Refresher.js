@@ -80,6 +80,12 @@
 //   };
 // }
 
+//This keyword
+//This will always refer to the object that is invoking the function
+//The silly way to understanding the this keyword is, whenever the function is invoked, check the object before the dot .
+//The value of this . keyword will always be the object before the dot .
+//If there is no object before the dot, the value of this keyword will be the global object.
+
 //Data types
 //How to initialize a data
 //the declarations are case sensitive
@@ -267,6 +273,57 @@ console.log(newObj.hasOwnProperty("a name"));
 var cloneeObj = { a: 1, b: 1 };
 var clonedObj = Object.assign({}, cloneeObj);
 console.log("CLONED: ", clonedObj);
+
+//CALL method
+//Call method invokes allows an object to use another object's function.
+//We define the object which should be used for the function.
+var person = {
+  age: 23,
+  getAge: function () {
+    return this.age;
+  },
+};
+
+var person2 = { age: 54 };
+console.log("HELLO", person.getAge.call(person2));
+//call also accepts arguments
+function dooo(message) {
+  return this.name + message;
+}
+const pers = { name: "John" };
+console.log("CALL DEMO", dooo.call(pers, "hello"));
+
+//APPLY method
+//The only difference between call and apply is that apply method takes the arguments as an array.
+console.log("APPLY DEMO", dooo.apply(pers, ["bye"]));
+
+//BIND method
+//Bind function returns a function by binding another object's function with the given object as argument
+//This is just like call function but this also returns the function.
+var bikeDetails = {
+  displayDetails: function (registrationNumber, brandName) {
+    return (
+      this.name +
+      " , " +
+      "bike details: " +
+      registrationNumber +
+      " , " +
+      brandName
+    );
+  },
+};
+
+var person11 = { name: "Vivek" };
+
+var detailsOfPerson1 = bikeDetails.displayDetails.bind(
+  person11,
+  "TS0122",
+  "Bullet"
+);
+
+// Binds the displayDetails function to the person1 object
+
+console.log("BIND", detailsOfPerson1());
 
 //LOOPS LOOPS LOOPS
 //While loop
