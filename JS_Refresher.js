@@ -753,3 +753,31 @@ console.log(
     return num > 1 ? num * factorial(num - 1) : num;
   })(10)
 );
+
+//DOM
+//DOM stands for Document Object Model.
+//It is a programming interface for HTML and XML.
+//When a browsers renders an HTML document it creates an object based on the HTML document which is called DOM.
+//We can utilized this object to manipulate or change various elements inside the HTML document.
+
+//Arrow functions
+//Introduced in ES6, return keyword and curly not needed if only 1 statement or expression
+//The most important difference between the traditional function declaration and arrow function is the this keyword.
+
+var oobj1 = {
+  getThis: function () {
+    return this;
+  },
+};
+
+var oobj2 = {
+  getThis: () => {
+    return this;
+  },
+};
+
+console.log("Traditional function this", oobj1.getThis());
+console.log("Arrow function this", oobj2.getThis());
+console.log("Arrow function this with bind", oobj2.getThis.bind(oobj2));
+//Here this of traditional function will refer to the object that is calling the function
+//However this of arrow function will inherit its value from the parent scope which is the window object
