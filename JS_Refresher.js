@@ -165,6 +165,8 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //NOTE: It is important to remember that any data type that is not primitive data type, is of Object type in javascript.
 
 //var is function scoped or global scoped (if declared outside of a function), IT IS NOT BLOCK SCOPEDDD
+//variables declared in global scope with var keyword is also added to the window/global object
+//so if we do window.variable1 it will give the value, but not in the case on const or let
 //it is hoisted as undefined, value can be changed
 //Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 //var with the same name can be redeclared which can cause bugs
@@ -531,20 +533,21 @@ console.log(addOneByDefault(2));
 
 //REST operator, rest operator will create an array from an array or any iterables
 // The rest parameter allows us to pass an indefinite number of parameters to a function and access them in an array.
+//Rest pranater should always be used as the last parameter of a function
 const usingRest = (...args) => {
   args.map((item) => console.log(item));
 };
 usingRest(1, 2, 4, 5, { name: "Aelbish" }, [1, 2, 3]);
 
 //SPREAD OPERATOR
-//The spread operator allows us to spread the values of arrays into a new array
+//The spread operator allows us to spread the values of arrays or object into a new array or object
 //We can use the spread operator to create a copy of the array also, since if we do something like
 // let arr1=[1, 2, 3], let arr2=arr1, and we change an element of arr1, then arr2 will also change since the reference the same memory
 const ar1 = [1, 2, 3, 4];
 const ar2 = [5, 6, 7];
 const ar3 = [...ar1, ...ar2];
 console.log(ar3);
-//We can also use the spread operator to pass the arguments from an array to a function
+//We can also use the spread operator to pass the arguments from an array to a function (when one or more arguments is expected)
 const params = [1, 2, 3];
 const summer = (a, b, c) => a + b + c;
 console.log(summer(...params));
@@ -781,3 +784,36 @@ console.log("Arrow function this", oobj2.getThis());
 console.log("Arrow function this with bind", oobj2.getThis.bind(oobj2));
 //Here this of traditional function will refer to the object that is calling the function
 //However this of arrow function will inherit its value from the parent scope which is the window object
+
+//Promises in JS
+//Promises are used to handle asynchronous operations in JS like server request. Before we used to have callbacks.
+//Promises have four states:
+//1. Pending: Initial state of a promise, promise has not been fulfilled or rejected.
+//2.Fulfilled: Async operation is complete and successful.
+//3.Rejected: Async operation has failed
+//4. Settled: Final state of a promise, promise has been either fulfilled or rejected.
+
+//Promise can be created using the promise constructor which takes a callback function with two parameters resolve and reject
+function sumOfThreeElements(...argu) {
+  return new Promise((resolve, reject) => {
+    if (argu.length > 3) {
+      reject("Only three elements allowed");
+    } else {
+      const sum = argu.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
+      resolve("Sum successfully computed " + sum);
+    }
+  });
+}
+
+//Promises can by consumed by .then or .catch
+
+sumOfThreeElements(1, 2, 3)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
