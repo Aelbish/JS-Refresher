@@ -2,6 +2,19 @@
 
 //This is an inline commment.
 
+//let and const is block scoped, not initialized.
+//var is function scoped or global scoped, hoisted as undefined.
+
+//In JS there are three types of scopes:
+//1. Global scope
+//2. Function scope
+//3. Block scope: let and const
+
+//SCOPE CHAIN IN JS
+//If the javascript engine does not find the variable in local scope, it tries to check for the variable in the outer scope.
+//If the variable does not exist in the outer scope, it tries to find the variable in the global scope.
+//If the variable is not found in the global space as well, reference error is thrown.
+
 //JS is loosely typed language. It is dynamically typed language i.e. the type of a variable is checked during runtume
 //instead of compile time. A variable can hold any type of data.
 
