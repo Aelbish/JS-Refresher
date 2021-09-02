@@ -134,6 +134,8 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //Higher order function
 //Functions that operate on other function by taking it as argument or returning it
 //Higher order functions are a result of functions being first class citizens in JS
+//In javascript, functions are treated as first-class citizens, they can be used as an argument of another function,
+//can be returned by another function and can be used as a property of an object.
 //Examples
 // function higherOrder(fn) {
 //   fn();
@@ -581,6 +583,9 @@ const raaa = ({ namer, gender }) => {
 raaa(argObj);
 
 //Construct a class and object
+//Class keyword introduced in ES6
+//Classes are not hoisted unlike function hence, we cannot use a class before declaring the class
+//Class can inherit properties and methods of another class by using the extend keyword
 class Person {
   constructor(age) {
     //underscore means should be private
@@ -602,7 +607,7 @@ person1.ageOfPerson = 65;
 console.log(person1);
 
 class Vegetable {
-  constructor(name111) {
+  constructor(name111, color) {
     this._name = name111;
   }
   get name() {
@@ -622,10 +627,14 @@ function Fruit(name, color) {
   this.name = name;
   this.color = color;
 }
+//Adding a method to the constructor is tedious, in ES6 we can define a class inside which we define a constructor, after that we directly add methods inside the class
+Fruit.prototype.getName = function () {
+  return this.name;
+};
 
 var fruit1 = new Fruit("Apple", "Red");
 var fruit2 = new Fruit("Banana", "Yellow");
-console.log("Constructor function", fruit1.name);
+console.log("Constructor function", fruit1.getName());
 
 //import * as objectName from "path"
 //if we want to export multiple functions from a file, we do export const func1 = () => {}
@@ -817,3 +826,23 @@ sumOfThreeElements(1, 2, 3)
   .catch((e) => {
     console.log(e);
   });
+
+//Generators in JS
+//Generators were introduced in ES6. I find generators like breakpoints.
+//generator functions are created using the syntax: function* functionName(){}
+//We can add yield keyword inside the generator function to stop the execution of the function midway.
+//NOTE:generator functions return a generator object
+function* looping() {
+  let count = 0;
+  for (let i = 0; i < 3; i++) {
+    count++;
+    yield i;
+  }
+  return count;
+}
+
+let iterator = looping();
+
+console.log("LOOPING", iterator.next());
+console.log("LOOPING", iterator.next());
+console.log("LOOPING", iterator.next());
