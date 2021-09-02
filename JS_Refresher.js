@@ -33,6 +33,44 @@ console.log("Closure", p1.getName());
 //A prototype is the blueprint of an object. Prototype allows us to use properties and methods of an object (default methods), even if they donot exist for a current object.
 //Array object inherits properties from the Array prototype.
 
+//CALLBACK FUNCTION
+//Callback functions are functions that are executed inside another function.
+
+//MEMOIZATION (Storing cached values if a function is running multiple times with the same parameter)
+//Instead of computing for a same value again and again we create a cache object where we store the computed value and access it
+//Although memoization saves times, it consumes a lot of memory since we are storing a lot of cached values.
+function memoizedAdd1() {
+  var cache = {};
+  return function (aNum) {
+    if (aNum in cache) {
+      console.log("Cached value");
+      return cache[aNum];
+    } else {
+      cache[aNum] = aNum + 1;
+      console.log("Computed");
+      return cache[aNum];
+    }
+  };
+}
+
+var memoizedFunc = memoizedAdd1();
+
+memoizedFunc(1);
+memoizedFunc(1);
+memoizedFunc(2);
+memoizedFunc(2);
+
+//Using recursion to find sum of an array
+function findSumOfArray(anArray) {
+  if (anArray.length === 1) {
+    return anArray[0];
+  } else {
+    return anArray.pop() + findSumOfArray(anArray);
+  }
+}
+
+console.log("Recursion", findSumOfArray([1, 2, 3]));
+
 //JS is loosely typed language. It is dynamically typed language i.e. the type of a variable is checked during runtume
 //instead of compile time. A variable can hold any type of data.
 
@@ -574,6 +612,17 @@ class Vegetable {
 const veg1 = new Vegetable("pumpkin");
 console.log(veg1);
 console.log(veg1.name);
+
+//Constructor function
+//Pascal notation
+function Fruit(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+var fruit1 = new Fruit("Apple", "Red");
+var fruit2 = new Fruit("Banana", "Yellow");
+console.log("Constructor function", fruit1.name);
 
 //import * as objectName from "path"
 //if we want to export multiple functions from a file, we do export const func1 = () => {}
