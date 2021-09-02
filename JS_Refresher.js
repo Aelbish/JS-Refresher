@@ -15,6 +15,24 @@
 //If the variable does not exist in the outer scope, it tries to find the variable in the global scope.
 //If the variable is not found in the global space as well, reference error is thrown.
 
+//CLOSURE IN JS
+//Closure is the ability of a function to remember the values of the variables that are declared in the outer scope.
+var Pperson = function (n) {
+  var nname = n;
+  this.getName = function () {
+    return nname;
+  };
+};
+
+var p1 = new Pperson("Aeloj");
+console.log("Closure", p1.getName());
+
+//PROTOYPES IN JS
+//There is also Object.prototype which is at the top of the chain, and every prototype inherits properties and methods from the Object.prototype.
+//All objects in JS inherit properties from a prototype.
+//A prototype is the blueprint of an object. Prototype allows us to use properties and methods of an object (default methods), even if they donot exist for a current object.
+//Array object inherits properties from the Array prototype.
+
 //JS is loosely typed language. It is dynamically typed language i.e. the type of a variable is checked during runtume
 //instead of compile time. A variable can hold any type of data.
 
