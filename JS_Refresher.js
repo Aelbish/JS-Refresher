@@ -157,6 +157,12 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //The value of this . keyword will always be the object before the dot .
 //If there is no object before the dot, the value of this keyword will be the global object.
 
+//Undefined vs Null
+//Both undefined and null are falsy values
+//Undefined is the default value of a variable that has not been assigned a value or function that has no explicit return or property that does not exist in an object
+//Null is a value that has been explicitly defined to a variable.
+//When comparing null and undefined we get true when using == and false when using ===. You can read the reason here.
+
 //Data types
 //How to initialize a data
 //the declarations are case sensitive
@@ -325,6 +331,13 @@ const caseInSwitch = (val) => {
 console.log(caseInSwitch(5));
 
 //OBJECTS
+//Creating an object without the prototype
+//We can create the object without the prototype by using Object.create method
+//The create method takes takes prototype as the first parameter
+const oob = Object.create(null);
+//The below code would throw an error
+//console.log(oob.toString());
+
 //Accessing object properties that have spaces
 let newObj = {
   "a name": "Aelbish",
@@ -650,6 +663,7 @@ console.log("Constructor function", fruit1.getName());
 //JS allocations memory for all variables and functions defined in the program before execution.
 //Assigning a value to an UNDECLARED variable makes it a global variable.
 //UNDECLARED VARIABLE is assigned the value of undefined
+//Note: only function declarations and variables declared with the var keyword are hoisted not function expressions or arrow functions, let and const keywords.
 const undeclared = () => {
   xx = 5;
   let b = 5;
@@ -846,3 +860,50 @@ let iterator = looping();
 console.log("LOOPING", iterator.next());
 console.log("LOOPING", iterator.next());
 console.log("LOOPING", iterator.next());
+
+//Weakset
+//Sets are used to store unique and ordered values
+//Like set but can only contain objects and no other type. An object inside the weakset is referenced weakly i.e.
+//if the object inside the weakset does not have a reference, it will be garbage collected.
+//Unlike set it only has three methods add(), delete(), has()
+//We need to pass an array inside the weakSet
+const objWeak = { message: "Hello" };
+const weakSet1 = new WeakSet([objWeak]);
+console.log("Testing weak set", weakSet1.has(objWeak));
+
+//WeakMap
+//Map is used to store-key value pairs. In a Map, the key and value can be both primitive and non-primitive types.
+//Weakmap and map are similar, but the key and value both should always be objects.
+//If there are no references to the object, the object will be garbage collected.
+const map1 = new Map();
+map1.set("Value", 1);
+const map2 = new WeakMap();
+map2.set({ type: "Value" }, { data: 1 });
+map2.set({ type: "Value" }, { data: 2 });
+console.log("Testing weakMap", map2.get({ type: "Value" }));
+
+//Temporal Dead Zone is a behaviour that occurs with variables declared using let and const keywords.
+//It is a behaviour where we try to access a variable before it is initialized.
+//x = 23;
+//let x; //this will throw reference error
+
+//Event Propogation: when an event occurs in a DOM element
+//Event propogation has 3 phases:
+//1. Capturing Phase: event starts from the window then goes down every element until it reaches the target element
+//2. Target Phase: event reached the target phase.
+//3. Bubbling phase: event bubbles up the parents and goes up until it reaches the window.
+
+// !! converts a value into a boolean
+console.log(!![].length); //logs false
+console.log(!![]); //logs true
+
+//Arguments object
+//It is an array-like object but it does not have the array functions like map, filter, forEach, reduce
+//We can convert the argument objct into an array using Array.prototype.slice.call(arguments)
+//Arguments object does not work on ES6 arrow functions.
+//We will have to use the rest operator for arrow functions
+const argumentFunc = (...args) => {
+  return args;
+};
+
+console.log("Arguments object in arrow functions", argumentFunc(1, 2, 3, 4));
