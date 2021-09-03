@@ -5,6 +5,13 @@
 //let and const is block scoped, not initialized.
 //var is function scoped or global scoped, hoisted as undefined.
 
+//Default parameter values
+function defPara(a = 0, b = 1) {
+  return a + b;
+}
+
+console.log("Trying default parameter", defPara());
+
 //In JS there are three types of scopes:
 //1. Global scope
 //2. Function scope
@@ -238,6 +245,29 @@ name += "Aelbish";
 console.log(a);
 console.log(name);
 
+//CHECKS
+//NaNCHECK
+//Number.isNaN();
+//OR custom check by value !== value
+
+//ARRAYCHECK
+//Array.isArray([1, 2, 3])
+
+//NumberisEvenCHECK
+function isEven(num) {
+  //BITWISE OPERATION & treats the numbers as binary values
+  if (num & 1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//OBJECTPROPERTYCHECK
+//first way: console.log("property" in objectName)
+//second way: console.log(objectName.hasProperty("property"))
+//third way: console.log(objectName["property"]), if the property does not exist then it will be undefined
+
 //STRINGS
 //Escaping characters
 //Use backslash \
@@ -335,7 +365,7 @@ console.log(caseInSwitch(5));
 //We can create the object without the prototype by using Object.create method
 //The create method takes takes prototype as the first parameter
 const oob = Object.create(null);
-//The below code would throw an error
+//The below code would throw an er
 //console.log(oob.toString());
 
 //Accessing object properties that have spaces
@@ -841,6 +871,17 @@ sumOfThreeElements(1, 2, 3)
     console.log(e);
   });
 
+//Async and await
+//Async/await is built on top of promises
+//The async keyword makes the function return an implicit promise
+const asyncFunc = async () => {
+  try {
+    await console.log("Success of async");
+  } catch (e) {
+    console.log(e);
+  }
+};
+asyncFunc();
 //Generators in JS
 //Generators were introduced in ES6. I find generators like breakpoints.
 //generator functions are created using the syntax: function* functionName(){}
@@ -860,6 +901,24 @@ let iterator = looping();
 console.log("LOOPING", iterator.next());
 console.log("LOOPING", iterator.next());
 console.log("LOOPING", iterator.next());
+
+//Set
+//One functionality of set would be to remove duplicates from an array
+const dupArray = [1, 2, 2, 3, 5];
+const arrayWNoDup = [...new Set(dupArray)];
+console.log("Removing duplicates using set: ", arrayWNoDup);
+//Sets are used to store unique and ordered values
+const set1 = new Set([1, 2, 3, 4, 5]);
+console.log("SET1 initial:", set1);
+console.log(set1.add(8));
+console.log("SET1 after add:", set1);
+//Duplicate element will not be added, it is a SET
+//delete returns true or false
+console.log(set1.delete(1));
+console.log("SET1 after delete:", set1);
+console.log("Using has method", set1.has(2));
+console.log("Length of the set using size:", set1.size);
+//to remove all elements use set1.clear()
 
 //Weakset
 //Sets are used to store unique and ordered values
@@ -907,3 +966,29 @@ const argumentFunc = (...args) => {
 };
 
 console.log("Arguments object in arrow functions", argumentFunc(1, 2, 3, 4));
+
+//MODULES
+const modulo = () => {
+  console.log("Testing module");
+};
+module.exports = modulo;
+//to import we do import moduleFunc from "./....js" or import * as helpers from ""
+//We can also create the functions inside a class and export a single class
+class Helpers {
+  printMsg(msg) {
+    console.log(msg);
+  }
+  sayHello() {
+    console.log("Hello");
+  }
+}
+
+module.exports = Helpers;
+
+//import Helpers from ""
+
+//Wrapper objects
+//When we declare a string variable we can automatically access a method like .toUpperCase() even though string is a primitive type
+//When we call the toUpperCase(), the string is converted into an object (Wrapper object) and the variable will behave like an object
+//The wrapper objects are String, Number, Boolean, Symbol, BigInt
+//The created object will be immediately discarded after calling the method
