@@ -1,6 +1,15 @@
 //This document is a refresher for basics of JS
 
-//This is an inline commment.
+//JS is Object-Oriented Programming language
+
+//Netscape is the software company who developed JavaScript.
+
+//This is an inline commment, single line comment
+
+/* This 
+is
+a
+multi-line comment */
 
 //let and const is block scoped, not initialized.
 //var is function scoped or global scoped, hoisted as undefined.
@@ -168,6 +177,7 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //Both undefined and null are falsy values
 //Undefined is the default value of a variable that has not been assigned a value or function that has no explicit return or property that does not exist in an object
 //Null is a value that has been explicitly defined to a variable.
+//Null means the variable is empty
 //When comparing null and undefined we get true when using == and false when using ===. You can read the reason here.
 
 //Data types
@@ -190,6 +200,9 @@ var myName = "Aelbish";
 myName = "Sam";
 var myName = "Thomas";
 
+//variable typing
+//variable typing is used to assign a number to a variable then assign string to the same variable.
+
 //block {} scoped,
 //let with the same name cannot be redeclared, but the value can be changed
 //let is not initialized when it is hoisted, will get a reference error
@@ -204,6 +217,7 @@ const myName2 = "Sammy";
 //Hence if we actaully need to create a const object that cannot be changed we can use freeze method;
 const obj1 = { name: "Sam", age: 51 };
 Object.freeze(obj1);
+//Object.seal - we can change those existing properties.
 
 console.log(myName);
 
@@ -267,6 +281,11 @@ function isEven(num) {
 //first way: console.log("property" in objectName)
 //second way: console.log(objectName.hasProperty("property"))
 //third way: console.log(objectName["property"]), if the property does not exist then it will be undefined
+//Note: the difference between using in and .hasProperty() is that in checks the objects' prototype chain i.e. methods like toString() will return true
+//whereas hasProperty will only check the user-defined properties
+
+//ASYNCOPERATIONCHECK
+//Promises, async/await, callbacks
 
 //STRINGS
 //Escaping characters
@@ -361,6 +380,10 @@ const caseInSwitch = (val) => {
 console.log(caseInSwitch(5));
 
 //OBJECTS
+//Create generic object
+//var i = new Object()
+//Three ways to create an object
+//Using the regular assignment {}, using the .create() or creating a class and instantiating an object
 //Creating an object without the prototype
 //We can create the object without the prototype by using Object.create method
 //The create method takes takes prototype as the first parameter
@@ -992,3 +1015,24 @@ module.exports = Helpers;
 //When we call the toUpperCase(), the string is converted into an object (Wrapper object) and the variable will behave like an object
 //The wrapper objects are String, Number, Boolean, Symbol, BigInt
 //The created object will be immediately discarded after calling the method
+
+//AJAX Asynchronous JavaScript and XML, It is a group of related technologies used to display data asynchronously.
+//What this means is that we can send data to the server and get data from the server without reloading the web page.
+
+//Timers in JS
+//Used to execute a piece of code at a set time or also repeat a code after set interval.
+// setTimeout(function, delay), setInterval(function. interval), clearInterval(id)
+
+//ViewState and SessionState
+//ViewState is used for client-side state management, data will not be secure since it will be exposed to the clients, info stored in client
+//ViewState is specific to a page session i.e. another page cannot view the state of the current page.
+//Session state is used for server-side state management, maintained at session level so all webpages can access the data
+//Session is only valid for object types, info is stored on the server
+
+//Popups in JS
+//Alert, Confirm, Prompt
+
+//Void(0)
+//Used to prevent the page from refreshing, used to call another method without refreshing the page
+
+//
