@@ -978,7 +978,7 @@ console.log("Testing weakMap", map2.get({ type: "Value" }));
 //3. Bubbling phase: event bubbles up the parents and goes up until it reaches the window.
 
 //Event Bubbling
-//JavaScript allows DOM elements to be nested inside each other. 
+//JavaScript allows DOM elements to be nested inside each other.
 //In such a case, if the handler of the child is clicked, the handler of parent will also work as if it were clicked too.
 
 // !! converts a value into a boolean
@@ -1069,4 +1069,21 @@ module.exports = Helpers;
 //Deferred scripts
 //By default the parsing of HTML code during page loading is paused until all the script is loaded
 //By using Deferred, script execution is delayed until the parsing of HTML code is done which makes the webpage loading and displaying faster.
+
+//Screen objects
+//Used to read the information from the client's screen
+//AvailHeight, AvailWidth, ColorDepth, Height, Width
+
+//escape and unescape function
+//escape function is used to make a transferable string and unscape is used to decode that string
+console.log("Escape test", escape("Hello how are you"));
+console.log("Unescape test", unescape("Hello%20how%20are%20you"));
+
+//encodeURI and decodeURI
+//encodeURI is used to convert URL into their hex coding, decodeURI is use to convert the encoded URL back to normal
+console.log("Encode URI test", encodeURI("my test.asp?name=ståle&car=saab"));
+console.log(
+  "Decode URI test",
+  decodeURI("my%20test.asp?name=st%C3%A5le&car=saab")
+);
 
