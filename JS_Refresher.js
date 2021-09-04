@@ -1,5 +1,7 @@
 //This document is a refresher for basics of JS
 
+//ECMA Script are like rules and guideline while Javascript is a scripting language used for web development.
+
 //JS is Object-Oriented Programming language
 
 //Netscape is the software company who developed JavaScript.
@@ -1086,4 +1088,11 @@ console.log(
   "Decode URI test",
   decodeURI("my%20test.asp?name=st%C3%A5le&car=saab")
 );
+
+//innerHTML
+//It is not advised to use innerHTML because innerHTML content is refereshed everytime and is slower.
+//There is no scope validation for innerHTML so it can make the webpage unstable
+
+//Hide JS code in old browsers
+// Add <script><!-- //--></script>
 
