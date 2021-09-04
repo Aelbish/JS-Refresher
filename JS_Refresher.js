@@ -416,6 +416,7 @@ console.log("CLONED: ", clonedObj);
 //CALL method
 //Call method invokes allows an object to use another object's function.
 //We define the object which should be used for the function.
+//Call is used when we know the number of arguments is known
 var person = {
   age: 23,
   getAge: function () {
@@ -434,6 +435,7 @@ console.log("CALL DEMO", dooo.call(pers, "hello"));
 
 //APPLY method
 //The only difference between call and apply is that apply method takes the arguments as an array.
+//Apply is used when we do not know the number of arguments
 console.log("APPLY DEMO", dooo.apply(pers, ["bye"]));
 
 //BIND method
@@ -975,6 +977,10 @@ console.log("Testing weakMap", map2.get({ type: "Value" }));
 //2. Target Phase: event reached the target phase.
 //3. Bubbling phase: event bubbles up the parents and goes up until it reaches the window.
 
+//Event Bubbling
+//JavaScript allows DOM elements to be nested inside each other. 
+//In such a case, if the handler of the child is clicked, the handler of parent will also work as if it were clicked too.
+
 // !! converts a value into a boolean
 console.log(!![].length); //logs false
 console.log(!![]); //logs true
@@ -1035,4 +1041,32 @@ module.exports = Helpers;
 //Void(0)
 //Used to prevent the page from refreshing, used to call another method without refreshing the page
 
-//
+//Blur function
+//Used to remove the focus from the specified object
+
+//ERRORS
+//1. Load time errors: Error that comes up when loading the webpage, the errors are dynamically generated, due to improper syntax
+//2. Run time errors: Error that comes up due to misue of the command inside the HTML language
+//3. Logical errors: Bad logic
+
+//window.onload vs onDocumentReady
+//onload function is not loaded until all the information on the page is loaded. This leads to substantial delay before any code is executed
+//onDocumentReady loads the code as soon as the DOM is loaded.
+
+//Targetting a frame
+// This can be done by including the name of the required frame in the hyperlink using the 'target' attribute.
+// <a href="/newpage.htm" target="newframe">>New Page</a>
+
+//Web garden vs Web farm
+//These are hosting systems. Web garden uses many processors in a single server wherease web farm uses many servers
+
+// This can be done by Using JavaScript extensions (runs from JavaScript Editor), example for opening of a file -
+// fh = fopen(getScriptPath(), 0);
+
+//Event handlers
+//onSubmit onClick we have to do something
+
+//Deferred scripts
+//By default the parsing of HTML code during page loading is paused until all the script is loaded
+//By using Deferred, script execution is delayed until the parsing of HTML code is done which makes the webpage loading and displaying faster.
+
