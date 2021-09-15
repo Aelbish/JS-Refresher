@@ -180,7 +180,10 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //Undefined is the default value of a variable that has not been assigned a value or function that has no explicit return or property that does not exist in an object
 //Null is a value that has been explicitly defined to a variable.
 //Null means the variable is empty
-//When comparing null and undefined we get true when using == and false when using ===. You can read the reason here.
+//When comparing null and undefined we get true when using == and false when using ===.
+//Null is like empty roller in the toilet for toilet paper wherease undefined is like there is no roller in the toilet for toilet paper.
+//Null can be assigned to a variable.
+//Trying to access an object's property that does not exist gives undefined wherease trying to access an empty property of an object gives null.
 
 //Data types
 //How to initialize a data
@@ -245,6 +248,8 @@ console.log(hi);
 //All values except 0, 0n, -0, “”, null, undefined and NaN are truthy values.
 //Logical operators
 //For &&: if both values are truthy returns the second value, if first value is falsy the first value is returned
+//For example in React {isLoggedIn && <h1>You are logged in</h1>}
+//In the above example, if both are truthy so the h1 element is rendered, and if isLoggedIn is false then the h1 element is not rendered.
 //if second value is falsy seond value is returned
 //For ||: if first value is truthy, then the first value is returned else always second value is returned
 
@@ -327,10 +332,12 @@ console.log(arrCalc);
 console.log(arrCalc.indexOf(99));
 
 //Remove an item based on index, splice takes two arguments, the first one is the starting positions and the second one is the number of elements to be removed
+//Changes the original array
 arrCalc.splice(0, 1);
 console.log("SPLICE", arrCalc);
 
 //SLICE function, takes startIndex and endIndex as two arguments from StartIndex and "to and not including EndIndex"
+//Does not change the original array
 //NOTE: this does not edit the original array or string we are working on
 const newSlice = arrCalc.slice(0, 1);
 console.log("SLICE", newSlice);
@@ -413,7 +420,11 @@ console.log(newObj.hasOwnProperty("a name"));
 //of that nested object. Hence, if we change the original object's nested object after cloning it, the cloned object's nested object will also be changed.
 var cloneeObj = { a: 1, b: 1 };
 var clonedObj = Object.assign({}, cloneeObj);
+//Spread operator also does a shallow copy
+var anotherShallowClonedObj = {...cloneeObj};
 console.log("CLONED: ", clonedObj);
+//For a deep copy
+var deepCopyClonedObj = JSON.parse(JSON.stringify(cloneeObj));
 
 //CALL method
 //Call method invokes allows an object to use another object's function.
@@ -605,7 +616,7 @@ console.log(addOneByDefault(2));
 
 //REST operator, rest operator will create an array from an array or any iterables
 // The rest parameter allows us to pass an indefinite number of parameters to a function and access them in an array.
-//Rest pranater should always be used as the last parameter of a function
+//Rest parameter should always be used as the last parameter of a function
 const usingRest = (...args) => {
   args.map((item) => console.log(item));
 };
@@ -1029,7 +1040,7 @@ module.exports = Helpers;
 
 //Timers in JS
 //Used to execute a piece of code at a set time or also repeat a code after set interval.
-// setTimeout(function, delay), setInterval(function. interval), clearInterval(id)
+// setTimeout(function, delay), setInterval(function, interval), clearInterval(id)
 
 //ViewState and SessionState
 //ViewState is used for client-side state management, data will not be secure since it will be exposed to the clients, info stored in client
@@ -1077,7 +1088,7 @@ module.exports = Helpers;
 //AvailHeight, AvailWidth, ColorDepth, Height, Width
 
 //escape and unescape function
-//escape function is used to make a transferable string and unscape is used to decode that string
+//escape function is used to make a transferable string and unescape is used to decode that string
 console.log("Escape test", escape("Hello how are you"));
 console.log("Unescape test", unescape("Hello%20how%20are%20you"));
 
