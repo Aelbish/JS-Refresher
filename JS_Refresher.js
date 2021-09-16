@@ -539,6 +539,7 @@ console.log("FILTER", filteredArr);
 
 //SOME FUNCTION, takes a function as an argument where we place the logic
 //Check if an array consists of at least one element that satisfies the condition, similar to filter
+//And overall will return true
 console.log(
   "SOME",
   addArr.some((item) => {
