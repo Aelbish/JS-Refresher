@@ -504,6 +504,12 @@ for (let i = 0; i < addArr.length; i++) {
 console.log(total);
 total = 0;
 
+//ARRAY FUNCTIONS AND METHODS
+//concat 
+//concat() is a method used to merge two or more arrays. It does not change the existing array, but instead returns a new array.
+const concatArr = [1, 2, 3, 4, 5];
+const concatNewArr = concatArr.concat([6, 7, 8]);
+
 //FOR EACH function for array
 addArr.forEach((item, index, arr) => {
   total += item;
