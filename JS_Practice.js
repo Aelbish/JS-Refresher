@@ -15,10 +15,10 @@ const memoizationExampleAdd1 = () => {
   };
 };
 const memoizer = memoizationExampleAdd1();
-// memoizer(1);
-// memoizer(1);
-// memoizer(2);
-// memoizer(2);
+memoizer(1);
+memoizer(1);
+memoizer(2);
+memoizer(2);
 
 //Finding sum of an array using recursion - Linear time complexity O(n)
 const findSumOfArrayRecursion = (anArray) => {
@@ -42,13 +42,5 @@ const findSumOfArrayRecursion = (anArray) => {
 const add = (x) => (y) => x + y;
 //console.log(add(12)(12));
 
-const object = {
-  name: "Aelbish",
-  age: "12",
-};
+const array = [1, 2, 3, 4];
 
-Object.seal(object);
-
-object.name = "aksdjashdkj11";
-
-console.log(object);

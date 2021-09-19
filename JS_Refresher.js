@@ -281,6 +281,7 @@ console.log(name);
 //NumberisEvenCHECK
 function isEven(num) {
   //BITWISE OPERATION & treats the numbers as binary values
+  //a & b will return 1 if both bits of a and b is 1
   if (num & 1) {
     return false;
   } else {
@@ -290,7 +291,7 @@ function isEven(num) {
 
 //OBJECTPROPERTYCHECK
 //first way: console.log("property" in objectName)
-//second way: console.log(objectName.hasProperty("property"))
+//second way: console.log(objectName.hasOwnProperty("property"))
 //third way: console.log(objectName["property"]), if the property does not exist then it will be undefined
 //Note: the difference between using in and .hasProperty() is that in checks the objects' prototype chain i.e. methods like toString() will return true
 //whereas hasProperty will only check the user-defined properties
@@ -358,6 +359,11 @@ let niren = advArr[1][0];
 console.log(niren);
 
 //ForEach for an array, forEach takes a function as an argument. That function has item, index, and array as arguments
+//ForEach returns undefined whereas map returns a new array (original array unchanged) with same number of elements as the original array
+//Hence we can map other functions like .filter() or .reduce() in .map() which has returned a new array
+//However, we cannot do that with forEach
+//with forEach we can mutate the original array in the callback since we can have access to (item, index, array)
+//map does not mutate the original array
 let names = ["Aelbish", "Niren", "Krishna"];
 names.forEach((item, index, array) => {
   console.log(item, index, array);
