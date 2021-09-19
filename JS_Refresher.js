@@ -148,6 +148,9 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //(function () {//Do something} ())
 //We enlose the function with brackets because JS will throw an error since the function doesnot have a name
 //Since it needs to be invoked immediately we also call it by adding ()
+//Usage, the use of IIFE is to not pollute our global object, if the function is not used again, and only executed once why not just make it just executable
+//instead of being able to call the function again. When we create IIFE we cannot call that function again since we are not hoisting or storing the function
+//rather just executing it
 
 //Higher order function
 //Functions that operate on other function by taking it as argument or returning it
@@ -1095,4 +1098,3 @@ console.log(
 
 //Hide JS code in old browsers
 // Add <script><!-- //--></script>
-
