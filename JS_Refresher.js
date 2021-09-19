@@ -6,6 +6,9 @@
 
 //Netscape is the software company who developed JavaScript.
 
+//Now, JavaScript is a single-threaded language, which means it has only one call stack that is used to execute the program. 
+//The call stack is the same as the stack data structure that you might read in Data structures. 
+
 //This is an inline commment, single line comment
 
 /* This 
@@ -1058,6 +1061,28 @@ module.exports = Helpers;
 //Timers in JS
 //Used to execute a piece of code at a set time or also repeat a code after set interval.
 // setTimeout(function, delay), setInterval(function, interval), clearInterval(id)
+//As you can see in the above diagram, DOM, AJAX, and Timeout are not actually part of JavaScript but the part of RunTime Environment or browser, 
+//so these can be run asynchronously within the WebAPI using the callback queue and again put in the call stack using event loop to execute.
+
+{/* <script>
+ console.log('A');
+   
+ setTimeout(() => {
+    console.log('B');
+   }, 3000);
+     
+ console.log('C');
+</script> */}
+
+//When JS tries to execute the above program, it places the first statement in the call stack which gets executed and prints A in the console 
+//and it gets to pop out of the stack. Now, it places the second statement in the call stack and when it tries to execute the statement, 
+//it finds out that setTimeout() doesn’t belong to JS so it pops out the function and puts in the WebAPI to get executed there. 
+//Since the call stack is now again empty, it places the third statement in the stack and executes it thus prints C in the console.
+
+//In the meanwhile, the WebAPI executes the timeout function and places the code in the callback queue. 
+//The eventloop checks if the call stack is empty or not or whether there is any statement in the callback queue that needs to be executed all the time.
+ //As soon as the event loop checks that the call stack is empty and there is something in the callback queue that needs to be executed, 
+ //it places the statement in the call stack and the call stack executes the statement and prints B in the console of the browser.
 
 //ViewState and SessionState
 //ViewState is used for client-side state management, data will not be secure since it will be exposed to the clients, info stored in client
