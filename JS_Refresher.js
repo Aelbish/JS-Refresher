@@ -153,7 +153,8 @@ console.log("Recursion", findSumOfArray([1, 2, 3]));
 //rather just executing it
 
 //Higher order function
-//Functions that operate on other function by taking it as argument or returning it
+//Example map, filter, reduce
+//Functions that accepts or returns another function is called higher-order function
 //Higher order functions are a result of functions being first class citizens in JS
 //In javascript, functions are treated as first-class citizens, they can be used as an argument of another function,
 //can be returned by another function and can be used as a property of an object.
@@ -225,7 +226,7 @@ const myName2 = "Sammy";
 //Hence if we actaully need to create a const object that cannot be changed we can use freeze method;
 const obj1 = { name: "Sam", age: 51 };
 Object.freeze(obj1);
-//Object.seal - we can change those existing properties.
+//Object.seal - we can change those existing properties, but we cannot add new properties
 
 console.log(myName);
 
@@ -424,7 +425,7 @@ console.log(newObj.hasOwnProperty("a name"));
 var cloneeObj = { a: 1, b: 1 };
 var clonedObj = Object.assign({}, cloneeObj);
 //Spread operator also does a shallow copy
-var anotherShallowClonedObj = {...cloneeObj};
+var anotherShallowClonedObj = { ...cloneeObj };
 console.log("CLONED: ", clonedObj);
 //For a deep copy
 var deepCopyClonedObj = JSON.parse(JSON.stringify(cloneeObj));
@@ -508,7 +509,7 @@ console.log(total);
 total = 0;
 
 //ARRAY FUNCTIONS AND METHODS
-//concat 
+//concat
 //concat() is a method used to merge two or more arrays. It does not change the existing array, but instead returns a new array.
 const concatArr = [1, 2, 3, 4, 5];
 const concatNewArr = concatArr.concat([6, 7, 8]);

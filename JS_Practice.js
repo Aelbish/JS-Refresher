@@ -33,6 +33,22 @@ const findSumOfArrayRecursion = (anArray) => {
 
 //IIFE
 (() => {
-  console.log("HELLO FROM IIFE");
+  //replace return with console.log
+  return "HELLO FROM IIFE";
 })();
 
+//Higher order function: Function that takes another function or returns a function
+//This add function takes another anonymous function
+const add = (x) => (y) => x + y;
+//console.log(add(12)(12));
+
+const object = {
+  name: "Aelbish",
+  age: "12",
+};
+
+Object.seal(object);
+
+object.name = "aksdjashdkj11";
+
+console.log(object);
