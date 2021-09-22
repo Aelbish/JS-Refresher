@@ -42,18 +42,47 @@ const findSumOfArrayRecursion = (anArray) => {
 const add = (x) => (y) => x + y;
 //console.log(add(12)(12));
 
-var oobj1 = {
-  getThis: function () {
-    return this;
-  },
+//Check if the number is prime
+const isPrime = (number) => {
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
-var oobj2 = {
-  getThis: () => {
-    return this;
-  },
+//Find prime factors of a given number
+const primeFactors = (number) => {
+  let primeFactorsArray = [];
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      primeFactorsArray.push(i);
+    }
+  }
+  return primeFactorsArray;
 };
 
-console.log("Traditional function this", oobj1.getThis());
-console.log("Arrow function this", oobj2.getThis());
-console.log("Arrow function this with bind", oobj2.getThis.bind(oobj2));
+//Find the nth Fibonacci
+const nthFib = (num) => {
+  let fibArray = [0, 1];
+  if (num === 0) {
+    return 0;
+  } else if (num <= 2) {
+    return 1;
+  }
+  for (let i = 2; i <= num; i++) {
+    fibArray[i] = fibArray[i - 2] + fibArray[i - 1];
+  }
+  return fibArray[num];
+};
+
+//Find the nth Fibonacci using recursion
+const nthFibWRecursion = (num) => {
+  if (num <= 1) {
+    return num;
+  } else {
+    return nthFibWRecursion(num - 1) + nthFibWRecursion(num - 2);
+  }
+};
+
